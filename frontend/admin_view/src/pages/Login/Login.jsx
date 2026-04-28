@@ -6,11 +6,12 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@backend/context/AuthContext';
 import { isValidEmail } from '../../utils/helpers';
+import { FcGoogle } from 'react-icons/fc';
 import './Login.css';
 
 const Login = () => {
   const navigate = useNavigate();
-  const { login, loading } = useAuth();
+  const { login, signInWithGoogle, loading } = useAuth();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -107,6 +108,31 @@ const Login = () => {
               {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
+
+          <div className="auth-divider">
+            <span>or</span>
+          </div>
+
+          <button
+            type="button"
+            className="google-signin-btn"
+            disabled={loading}
+            onClick={async () => {
+              try {
+                const userData = await signInWithGoogle();
+                if (userData.role !== 'admin') {
+                  setError('Please use the User App to login.');
+                  return;
+                }
+                navigate('/dashboard');
+              } catch (err) {
+                setError(err.message || 'Google sign-in failed. Please try again.');
+              }
+            }}
+          >
+            <FcGoogle size={20} />
+            Continue with Google
+          </button>
 
           <div className="auth-footer">
             <p>

@@ -2,12 +2,13 @@ import { useState } from 'react';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Button from '../../components/Button/Button';
+import { FcGoogle } from 'react-icons/fc';
 import './Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login, loading, error } = useAuth();
+  const { login, signInWithGoogle, loading, error } = useAuth();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const redirect = searchParams.get('redirect');
@@ -97,6 +98,27 @@ const Login = () => {
             <Button type="submit" fullWidth loading={loading}>
               Sign In
             </Button>
+
+            <div className="auth-divider">
+              <span>or</span>
+            </div>
+
+            <button
+              type="button"
+              className="google-signin-btn"
+              disabled={loading}
+              onClick={async () => {
+                try {
+                  await signInWithGoogle();
+                  navigate(redirect || '/');
+                } catch {
+                  // error is set in context
+                }
+              }}
+            >
+              <FcGoogle size={20} />
+              Continue with Google
+            </button>
 
             <p className="auth-trust-text">
               Trusted across hospitals, banks &amp; government offices

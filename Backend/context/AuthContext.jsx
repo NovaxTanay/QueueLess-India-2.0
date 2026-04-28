@@ -10,6 +10,9 @@ import {
   onAuthChange,
 } from '../services/auth.service';
 import { subscribeToAdminServices } from '../services/service.service';
+import { signInWithPopup } from 'firebase/auth';
+import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
+import { auth, db, googleProvider } from '../firebase/firebase';
 
 const AuthContext = createContext(null);
 
@@ -155,6 +158,41 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
+  const signInWithGoogle = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const gUser = result.user;
+
+      // Check if user doc exists in Firestore, if not create it
+      const userRef = doc(db, 'users', gUser.uid);
+      const userSnap = await getDoc(userRef);
+
+      if (!userSnap.exists()) {
+        await setDoc(userRef, {
+          email: gUser.email,
+          name: gUser.displayName || 'User',
+          role: 'user', // default role — admin assigned manually
+          serviceIds: [],
+          createdAt: serverTimestamp(),
+          photoURL: gUser.photoURL || null,
+        });
+      }
+
+      const profile = await getUserProfile(gUser.uid);
+      return {
+        uid: gUser.uid,
+        ...profile,
+      };
+    } catch (err) {
+      setError(err.message);
+      throw err;
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
   const clearError = useCallback(() => setError(null), []);
 
   const value = {
@@ -167,6 +205,7 @@ export const AuthProvider = ({ children }) => {
     login,
     signup,
     logout,
+    signInWithGoogle,
     clearError,
     adminServices,
     activeService,
