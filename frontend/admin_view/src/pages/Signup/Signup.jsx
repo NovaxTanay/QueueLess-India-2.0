@@ -168,7 +168,7 @@ const Signup = () => {
 
           <div className="auth-switch-link">
             Not an admin?
-            <button onClick={() => window.open('http://localhost:5173', '_blank')}>
+            <button onClick={() => window.open(import.meta.env.VITE_USER_URL || 'http://localhost:5173', '_blank')}>
               Go to User App →
             </button>
           </div>
