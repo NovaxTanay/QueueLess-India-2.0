@@ -1,0 +1,206 @@
+/* ============================================
+   My Services Page Styles
+   ============================================ */
+
+/* Header */
+.ms-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  gap: var(--space-lg);
+}
+
+.ms-header-left h1 {
+  margin-bottom: 2px;
+}
+
+.ms-header-left p {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+/* Grid */
+.ms-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: var(--space-xl);
+}
+
+/* Card */
+.ms-card {
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.ms-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.ms-card--editing {
+  background: #f0f9ff;
+  border-color: var(--info);
+}
+
+.ms-card--deleting {
+  border-color: var(--danger);
+  background: #fff5f5;
+}
+
+/* Card Top */
+.ms-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.ms-card-icon {
+  font-size: 36px;
+  line-height: 1;
+}
+
+.ms-card-active-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--primary);
+  color: #ffffff;
+  font-size: var(--font-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Card Body */
+.ms-card-name {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-lg);
+}
+
+.ms-card-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.ms-card-detail:last-of-type {
+  border-bottom: none;
+}
+
+.ms-card-label {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.ms-card-value {
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Card Actions */
+.ms-card-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+/* ─── Edit Mode ─── */
+.ms-card-edit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.ms-card-edit-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--info);
+  margin-bottom: var(--space-xs);
+}
+
+.ms-card-edit-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.ms-card-edit-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+/* ─── Delete Confirmation ─── */
+.ms-card-delete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: var(--space-xl) 0;
+  gap: var(--space-md);
+}
+
+.ms-card-delete-icon {
+  font-size: 48px;
+}
+
+.ms-card-delete-title {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--danger);
+}
+
+.ms-card-delete-msg {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  max-width: 280px;
+  line-height: 1.6;
+}
+
+.ms-card-delete-actions {
+  display: flex;
+  gap: var(--space-sm);
+  margin-top: var(--space-md);
+}
+
+/* ─── Empty State ─── */
+.ms-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-3xl);
+  gap: var(--space-md);
+  min-height: 400px;
+}
+
+.ms-empty-icon {
+  font-size: 64px;
+  opacity: 0.5;
+}
+
+.ms-empty h2 {
+  font-size: var(--font-xl);
+  color: var(--text-primary);
+}
+
+.ms-empty p {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-md);
+}

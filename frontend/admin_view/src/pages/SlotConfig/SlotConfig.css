@@ -1,0 +1,68 @@
+/* ============================================
+   Slot Config Styles
+   ============================================ */
+
+.slot-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+.slot-header h1 {
+  margin-bottom: 2px;
+}
+
+.slot-subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+.slot-add {
+  margin-bottom: var(--space-xl);
+}
+
+.slot-add h3 {
+  margin-bottom: var(--space-lg);
+}
+
+.slot-add-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: var(--space-lg);
+  align-items: end;
+}
+
+.slot-add-btn {
+  margin-bottom: 2px;
+}
+
+.slot-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.slot-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-3xl);
+  gap: var(--space-md);
+}
+
+.slot-empty-icon {
+  font-size: 40px;
+  opacity: 0.4;
+}
+
+.slot-empty p {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+@media (max-width: 768px) {
+  .slot-add-form {
+    grid-template-columns: 1fr 1fr;
+  }
+}

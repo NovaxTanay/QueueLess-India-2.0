@@ -1,0 +1,109 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ── Helper Functions ──
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function getUserRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && getUserRole() == 'admin';
+    }
+
+    function isServiceAdmin(serviceId) {
+      return isAuthenticated() &&
+        get(/databases/$(database)/documents/services/$(serviceId)).data.adminUid == request.auth.uid;
+    }
+
+    // ── Users Collection ──
+    match /users/{userId} {
+      // Users can read their own profile
+      allow read: if isOwner(userId);
+      // Users can create their own profile during signup
+      allow create: if isOwner(userId);
+      // Users can update their own profile
+      allow update: if isOwner(userId);
+      // No one can delete user profiles
+      allow delete: if false;
+    }
+
+    // ── Services Collection ──
+    match /services/{serviceId} {
+      // Anyone authenticated can read services
+      allow read: if isAuthenticated();
+      // Only authenticated users can create services (admin role checked in app)
+      allow create: if isAuthenticated();
+      // Only the service admin can update their service
+      allow update: if isAuthenticated() &&
+        resource.data.adminUid == request.auth.uid;
+      // No deletion
+      allow delete: if false;
+    }
+
+    // ── Queue Collection ──
+    match /queue/{queueId} {
+      // Anyone authenticated can read queue entries (for live display)
+      allow read: if isAuthenticated();
+
+      // Users can create queue entries (join queue) — only for themselves
+      allow create: if isAuthenticated() &&
+        request.resource.data.userId == request.auth.uid &&
+        request.resource.data.status == 'WAITING';
+
+      // Admins of the service can update queue status (call, skip, complete)
+      // Users can NOT update queue entries
+      allow update: if isAuthenticated() &&
+        isServiceAdmin(resource.data.serviceId);
+
+      // No deletion
+      allow delete: if false;
+    }
+
+    // ── Bookings Collection ──
+    match /bookings/{bookingId} {
+      // Users can read their own bookings
+      allow read: if isAuthenticated() &&
+        resource.data.userId == request.auth.uid;
+
+      // Users can create bookings for themselves
+      allow create: if isAuthenticated() &&
+        request.resource.data.userId == request.auth.uid;
+
+      // Admins of the service can update booking status
+      allow update: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        isServiceAdmin(resource.data.serviceId)
+      );
+
+      // No deletion
+      allow delete: if false;
+    }
+
+    // ── Notifications Collection ──
+    match /notifications/{notifId} {
+      // Users can read their own notifications
+      allow read: if isAuthenticated() &&
+        resource.data.userId == request.auth.uid;
+
+      // System/admins can create notifications (checked in app logic)
+      allow create: if isAuthenticated();
+
+      // Users can mark their own notifications as read
+      allow update: if isAuthenticated() &&
+        resource.data.userId == request.auth.uid &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['read']);
+
+      // No deletion
+      allow delete: if false;
+    }
+  }
+}

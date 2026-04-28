@@ -1,0 +1,46 @@
+.crowd-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.crowd-badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.crowd-low {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--crowd-low);
+}
+
+.crowd-low .crowd-badge-dot {
+  background: var(--crowd-low);
+}
+
+.crowd-medium {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--crowd-medium);
+}
+
+.crowd-medium .crowd-badge-dot {
+  background: var(--crowd-medium);
+}
+
+.crowd-high {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--crowd-high);
+}
+
+.crowd-high .crowd-badge-dot {
+  background: var(--crowd-high);
+  animation: pulse 1s ease-in-out infinite;
+}

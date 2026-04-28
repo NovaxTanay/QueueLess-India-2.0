@@ -1,0 +1,220 @@
+/* ============================================
+   Queue Management Styles
+   ============================================ */
+
+.qm-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+  gap: var(--space-lg);
+}
+
+.qm-header-left h1 {
+  margin-bottom: 2px;
+}
+
+.qm-header-left p {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+.qm-header-actions {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.qm-call-btn {
+  flex-shrink: 0;
+  font-size: var(--font-md) !important;
+  padding: 14px 32px !important;
+}
+
+/* Currently Serving */
+.qm-serving {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.04), rgba(13, 148, 136, 0.06));
+  border: 1px solid rgba(16, 185, 129, 0.15);
+}
+
+.qm-serving-label {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-sm);
+}
+
+.qm-serving-token {
+  font-size: 56px;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+/* Filter tabs */
+.qm-filters {
+  display: flex;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.qm-filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.qm-filter-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.qm-filter-active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.qm-filter-active:hover {
+  color: #fff;
+}
+
+.qm-filter-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 1px 7px;
+  border-radius: 10px;
+  font-size: var(--font-xs);
+}
+
+.qm-filter-active .qm-filter-count {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ─── Emergency Button ─── */
+.qm-emergency-btn {
+  background: var(--emergency);
+  color: #ffffff;
+  border: none;
+  padding: 14px 28px;
+  font-size: var(--font-md);
+  font-weight: 700;
+  font-family: var(--font-family);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  animation: emergencyPulse 2s ease-in-out infinite;
+  transition: background var(--transition-fast);
+}
+
+.qm-emergency-btn:hover {
+  background: #b91c1c;
+}
+
+@keyframes emergencyPulse {
+  0% { box-shadow: 0 0 0 0 var(--emergency-pulse); }
+  70% { box-shadow: 0 0 0 10px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* ─── Emergency Modal ─── */
+.qm-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.15s ease-out;
+}
+
+.qm-modal {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  width: 100%;
+  max-width: 440px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: modalSlideUp 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.qm-modal-title {
+  font-size: var(--font-xl);
+  font-weight: 700;
+  color: var(--emergency);
+  margin-bottom: var(--space-xl);
+}
+
+.qm-modal-warning {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  background: var(--emergency-light);
+  border: 1px solid #fecaca;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  margin-top: var(--space-lg);
+  line-height: 1.6;
+}
+
+.qm-modal-actions {
+  display: flex;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+  justify-content: flex-end;
+}
+
+.qm-modal-confirm {
+  background: var(--emergency);
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: var(--font-sm);
+  font-weight: 700;
+  font-family: var(--font-family);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.qm-modal-confirm:hover {
+  background: #b91c1c;
+}
+
+.qm-modal-confirm:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

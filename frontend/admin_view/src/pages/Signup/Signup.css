@@ -1,0 +1,4 @@
+/* Signup-specific overrides */
+.auth-container {
+  max-width: 480px;
+}

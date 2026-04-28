@@ -1,0 +1,90 @@
+/* ============================================
+   Settings Styles
+   ============================================ */
+
+.settings-page h1 {
+  margin-bottom: 2px;
+}
+
+.settings-subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.settings-section {
+  margin-bottom: var(--space-xl);
+}
+
+.settings-section h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.settings-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-xl);
+}
+
+.settings-section-header h2 {
+  margin-bottom: 0;
+}
+
+.settings-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.settings-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+
+/* Account section */
+.settings-account {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-xl);
+}
+
+.settings-account-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.settings-account-row:last-child {
+  border-bottom: none;
+}
+
+.settings-account-label {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.settings-account-value {
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.settings-role-badge {
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: var(--font-xs);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .settings-row {
+    grid-template-columns: 1fr;
+  }
+}

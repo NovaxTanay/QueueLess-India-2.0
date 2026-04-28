@@ -1,0 +1,112 @@
+.slot-selector {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+/* Date picker row */
+.slot-dates {
+  display: flex;
+  gap: var(--space-sm);
+  overflow-x: auto;
+  padding-bottom: var(--space-sm);
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.slot-dates::-webkit-scrollbar {
+  display: none;
+}
+
+.slot-date-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 2px solid var(--glass-border);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  min-width: 72px;
+  flex-shrink: 0;
+}
+
+.slot-date-item:hover {
+  border-color: var(--primary-500);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.slot-date-item.active {
+  border-color: var(--primary-500);
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.slot-date-day {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.slot-date-num {
+  font-size: var(--font-size-xl);
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.slot-date-month {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+}
+
+.slot-date-item.active .slot-date-day,
+.slot-date-item.active .slot-date-month {
+  color: var(--primary-400);
+}
+
+/* Time slots grid */
+.slot-times-label {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.slot-times-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: var(--space-sm);
+}
+
+.slot-time-item {
+  padding: var(--space-sm) var(--space-md);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  border: 2px solid var(--glass-border);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.slot-time-item:hover:not(.unavailable) {
+  border-color: var(--primary-500);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.slot-time-item.active {
+  border-color: var(--primary-500);
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--primary-400);
+}
+
+.slot-time-item.unavailable {
+  opacity: 0.4;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}

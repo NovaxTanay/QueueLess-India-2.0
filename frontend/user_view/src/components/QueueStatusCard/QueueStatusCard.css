@@ -1,0 +1,104 @@
+.queue-status-card {
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+
+.queue-status-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.queue-status-title {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.queue-status-live {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-xs);
+  color: var(--crowd-low);
+  font-weight: 600;
+}
+
+.queue-status-live-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--crowd-low);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.queue-status-numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.queue-stat {
+  text-align: center;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.queue-stat-value {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: var(--space-xs);
+}
+
+.queue-stat-value.serving {
+  color: var(--primary-400);
+}
+
+.queue-stat-value.total {
+  color: var(--text-secondary);
+}
+
+.queue-stat-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.queue-progress-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.queue-progress-fill {
+  height: 100%;
+  background: var(--gradient-primary);
+  border-radius: var(--radius-full);
+  transition: width 1s ease;
+}
+
+.queue-wait {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.queue-wait-value {
+  font-weight: 700;
+  color: var(--primary-400);
+}

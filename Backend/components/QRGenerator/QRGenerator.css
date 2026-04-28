@@ -1,0 +1,35 @@
+.qr-generator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  padding: var(--space-xl);
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+.qr-generator-title {
+  font-size: var(--font-size-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.qr-generator-canvas {
+  padding: var(--space-md);
+  background: white;
+  border-radius: var(--radius-md);
+}
+
+.qr-generator-url {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  word-break: break-all;
+  text-align: center;
+  max-width: 280px;
+}
+
+.qr-generator-actions {
+  display: flex;
+  gap: var(--space-sm);
+}

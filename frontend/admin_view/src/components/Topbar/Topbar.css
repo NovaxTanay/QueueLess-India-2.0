@@ -1,0 +1,201 @@
+/* ============================================
+   Topbar Styles
+   ============================================ */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: var(--sidebar-width);
+  right: 0;
+  height: var(--topbar-height);
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-xl);
+  z-index: 90;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.topbar-service-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  cursor: default;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: inherit;
+  transition: background 0.2s ease;
+}
+
+.topbar-service-btn--switchable {
+  cursor: pointer;
+}
+
+.topbar-service-btn--switchable:hover {
+  background: var(--bg-hover, #f1f5f9);
+}
+
+.topbar-service-icon {
+  font-size: 20px;
+  line-height: 1;
+}
+
+.topbar-service-name {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.topbar-chevron {
+  font-size: 10px;
+  color: var(--text-secondary);
+  transition: transform 0.2s ease;
+  margin-left: 2px;
+}
+
+.topbar-chevron--open {
+  transform: rotate(180deg);
+}
+
+/* ---------- Dropdown ---------- */
+
+.topbar-dropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  min-width: 260px;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 200;
+  overflow: hidden;
+  animation: topbarDropIn 0.15s ease-out;
+}
+
+@keyframes topbarDropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.topbar-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-sm, 14px);
+  color: var(--text-primary);
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.topbar-dropdown-item:hover {
+  background: #f8fafc;
+}
+
+.topbar-dropdown-item--active {
+  color: var(--primary, #0d9488);
+  font-weight: 600;
+}
+
+.topbar-dropdown-icon {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.topbar-dropdown-label {
+  flex: 1;
+}
+
+.topbar-dropdown-check {
+  color: var(--primary, #0d9488);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.topbar-dropdown-add {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  background: none;
+  border: none;
+  border-top: 1px solid var(--border);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--font-sm, 14px);
+  color: var(--primary, #0d9488);
+  font-weight: 600;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.topbar-dropdown-add:hover {
+  background: #f0fdfa;
+}
+
+/* ---------- Right side (unchanged) ---------- */
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.topbar-date {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.topbar-divider {
+  width: 1px;
+  height: 24px;
+  background: var(--border);
+}
+
+.topbar-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.topbar-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-sm);
+  font-weight: 700;
+}
+
+.topbar-username {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+}

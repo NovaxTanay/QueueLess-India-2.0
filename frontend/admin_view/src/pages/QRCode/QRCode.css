@@ -1,0 +1,104 @@
+/* ============================================
+   QR Code Page Styles
+   ============================================ */
+
+.qr-page h1 {
+  margin-bottom: 2px;
+}
+
+.qr-subtitle {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+  margin-bottom: var(--space-xl);
+}
+
+.qr-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.qr-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+}
+
+.qr-preview {
+  padding: var(--space-xl);
+  background: #fff;
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border);
+  display: inline-block;
+}
+
+.qr-service-name {
+  font-size: var(--font-lg);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.qr-service-url {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  word-break: break-all;
+  max-width: 300px;
+}
+
+.qr-actions {
+  display: flex;
+  gap: var(--space-md);
+}
+
+/* Instructions */
+.qr-instructions h3 {
+  margin-bottom: var(--space-xl);
+}
+
+.qr-instructions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.qr-instruction-item {
+  display: flex;
+  gap: var(--space-lg);
+  align-items: flex-start;
+}
+
+.qr-instruction-num {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-sm);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.qr-instruction-item strong {
+  display: block;
+  font-size: var(--font-base);
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.qr-instruction-item p {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .qr-content {
+    grid-template-columns: 1fr;
+  }
+}

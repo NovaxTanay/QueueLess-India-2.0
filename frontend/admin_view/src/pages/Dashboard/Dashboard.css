@@ -1,0 +1,232 @@
+/* ============================================
+   Dashboard Styles — Grid + Detail
+   ============================================ */
+
+.dashboard-layout {
+  min-height: 100vh;
+  background: var(--bg);
+}
+
+/* ── Welcome / header ── */
+.dashboard-welcome {
+  margin-bottom: var(--space-xl);
+}
+
+.dashboard-welcome h1 {
+  margin-bottom: 2px;
+}
+
+.dashboard-welcome p {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}
+
+/* ── Stats grid (detail view) ── */
+.dashboard-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+/* ── Recent queue (detail view) ── */
+.dashboard-recent {
+  margin-bottom: var(--space-xl);
+}
+
+.dashboard-recent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-lg);
+}
+
+.dashboard-recent-header h2 {
+  font-size: var(--font-lg);
+}
+
+.dashboard-recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.dashboard-recent-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  padding: var(--space-md) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.dashboard-recent-item:last-child {
+  border-bottom: none;
+}
+
+.dashboard-recent-token {
+  font-weight: 700;
+  font-size: var(--font-md);
+  color: var(--text-primary);
+  min-width: 50px;
+}
+
+.dashboard-recent-time {
+  font-size: var(--font-sm);
+  color: var(--text-secondary);
+  margin-left: auto;
+}
+
+.dashboard-recent-wait {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  min-width: 70px;
+  text-align: right;
+}
+
+.dashboard-recent-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-3xl);
+  gap: var(--space-md);
+}
+
+.dashboard-recent-empty-icon {
+  font-size: 40px;
+  opacity: 0.4;
+}
+
+.dashboard-recent-empty p {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+/* ── Services grid (home view) ── */
+.db-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.db-service-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  cursor: pointer;
+  border: 1px solid var(--border-light);
+  background: var(--surface);
+  text-align: left;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  width: 100%;
+  border-radius: var(--radius-lg, 12px);
+}
+
+.db-service-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.db-service-card--add {
+  border-style: dashed;
+  opacity: 0.6;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.db-service-card--add:hover {
+  opacity: 1;
+}
+
+.db-service-card-icon {
+  font-size: 32px;
+  line-height: 1;
+}
+
+.db-service-card-name {
+  font-size: var(--font-md);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.db-service-card-location {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.db-service-card-category {
+  font-size: var(--font-xs);
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* ── Service detail info card ── */
+.db-service-info {
+  margin-bottom: var(--space-xl);
+}
+
+.db-service-info-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-lg);
+}
+
+.db-service-info-row {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--space-sm) 0;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.db-service-info-row:last-child {
+  border-bottom: none;
+}
+
+.db-service-info-label {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+.db-service-info-value {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: var(--font-sm);
+}
+
+.db-service-info-actions {
+  display: flex;
+  gap: var(--space-md);
+}
+
+/* ── Back button ── */
+.db-back-btn {
+  margin-bottom: var(--space-md);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .dashboard-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .db-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .dashboard-stats {
+    grid-template-columns: 1fr;
+  }
+  .db-services-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,97 @@
+.checkin-page {
+  min-height: calc(100vh - var(--navbar-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+}
+
+.checkin-card {
+  max-width: 480px;
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  text-align: center;
+  animation: scaleIn 0.5s ease forwards;
+}
+
+.checkin-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--space-lg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+}
+
+.checkin-icon.success {
+  background: rgba(34, 197, 94, 0.15);
+  color: var(--status-success);
+}
+
+.checkin-icon.joining {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--primary-400);
+}
+
+.checkin-icon.error {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--status-error);
+}
+
+.checkin-title {
+  font-size: var(--font-size-2xl);
+  font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.checkin-subtitle {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-lg);
+}
+
+.checkin-token {
+  display: inline-block;
+  padding: var(--space-md) var(--space-xl);
+  background: rgba(16, 185, 129, 0.1);
+  border: 2px solid var(--primary-500);
+  border-radius: var(--radius-lg);
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+.checkin-token-label {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+
+.checkin-token-value {
+  font-size: var(--font-size-3xl);
+  font-weight: 900;
+  color: var(--primary-400);
+}
+
+.checkin-actions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: center;
+  margin-top: var(--space-lg);
+}
+
+.checkin-error {
+  padding: var(--space-md);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-md);
+  color: var(--status-error);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-md);
+}

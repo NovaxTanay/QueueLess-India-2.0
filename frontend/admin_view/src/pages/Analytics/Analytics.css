@@ -1,0 +1,90 @@
+/* ============================================
+   Analytics Styles
+   ============================================ */
+
+.analytics-page h1 {
+  margin-bottom: 2px;
+}
+
+.analytics-subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  margin-bottom: var(--space-xl);
+}
+
+.analytics-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+/* Status breakdown */
+.analytics-breakdown {
+  margin-bottom: var(--space-xl);
+}
+
+.analytics-breakdown h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.analytics-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.analytics-breakdown-card {
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  border: 1px solid;
+  text-align: center;
+  transition: transform var(--transition-base);
+}
+
+.analytics-breakdown-card:hover {
+  transform: translateY(-2px);
+}
+
+.analytics-breakdown-count {
+  font-size: var(--font-2xl);
+  font-weight: 800;
+  margin-bottom: var(--space-xs);
+}
+
+.analytics-breakdown-label {
+  font-size: var(--font-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* Table */
+.analytics-table h2 {
+  margin-bottom: var(--space-lg);
+}
+
+.analytics-empty {
+  text-align: center;
+  padding: var(--space-3xl);
+  color: var(--text-muted);
+}
+
+@media (max-width: 1024px) {
+  .analytics-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .analytics-breakdown-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .analytics-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .analytics-breakdown-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

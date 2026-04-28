@@ -1,0 +1,148 @@
+/* ============================================
+   QueueTable Styles
+   ============================================ */
+
+.queue-table-wrapper {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+}
+
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-sm);
+}
+
+.queue-table th {
+  text-align: left;
+  padding: var(--space-md) var(--space-lg);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid var(--border);
+  background: var(--border-light);
+}
+
+.queue-table td {
+  padding: var(--space-md) var(--space-lg);
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+
+.queue-table-row {
+  transition: background var(--transition-fast);
+}
+
+.queue-table-row:hover {
+  background: rgba(13, 148, 136, 0.02);
+}
+
+.queue-table-token {
+  font-weight: 700;
+  font-size: var(--font-md);
+  color: var(--text-primary);
+}
+
+.queue-table-time {
+  color: var(--text-secondary);
+  font-size: var(--font-sm);
+}
+
+.queue-table-actions {
+  display: flex;
+  gap: var(--space-sm);
+}
+
+.queue-action-btn {
+  padding: 5px 12px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: var(--font-xs);
+  font-weight: 600;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.queue-action-btn.complete {
+  background: var(--serving-bg);
+  color: var(--serving);
+}
+.queue-action-btn.complete:hover {
+  background: var(--serving);
+  color: #fff;
+}
+
+.queue-action-btn.skip {
+  background: var(--skipped-bg);
+  color: var(--skipped);
+}
+.queue-action-btn.skip:hover {
+  background: var(--skipped);
+  color: #fff;
+}
+
+.queue-action-done {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Empty & Loading */
+.queue-table-empty,
+.queue-table-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-3xl);
+  gap: var(--space-md);
+}
+
+.queue-table-empty-icon {
+  font-size: 40px;
+  opacity: 0.5;
+}
+
+.queue-table-empty p {
+  color: var(--text-muted);
+  font-size: var(--font-sm);
+}
+
+/* Emergency rows */
+.queue-table-row--emergency {
+  border-left: 4px solid var(--emergency);
+  animation: emergencyRowPulse 2s ease-in-out infinite;
+}
+
+.queue-table-row--emergency:hover {
+  background: var(--emergency-light);
+}
+
+.queue-table-emergency-label {
+  font-weight: 700;
+  color: var(--emergency);
+  font-size: var(--font-sm);
+}
+
+@keyframes emergencyRowPulse {
+  0%, 100% { background: var(--emergency-light); }
+  50% { background: #fecaca; }
+}
+
+/* Cancelled rows */
+.queue-table-row--cancelled {
+  opacity: 0.5;
+}
+
+.queue-table-row--cancelled .queue-table-token {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.queue-action-done.cancelled {
+  color: #ef4444;
+  font-style: italic;
+}
