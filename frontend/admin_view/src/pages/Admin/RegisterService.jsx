@@ -4,10 +4,10 @@
 
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import { createService } from '../../services/service.service';
-import { updateUserServiceIds } from '../../services/auth.service';
-import Button from '../../components/Button/Button';
+import { useAuth } from '@backend/context/AuthContext';
+import { createService } from '@backend/services/service.service';
+import { updateUserServiceIds } from '@backend/services/auth.service';
+import Button from '@backend/components/Button/Button';
 import './Admin.css';
 
 const CATEGORIES = [

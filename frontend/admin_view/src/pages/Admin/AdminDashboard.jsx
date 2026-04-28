@@ -4,11 +4,11 @@
 
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import { getServicesByAdmin } from '../../services/service.service';
-import useQueue from '../../hooks/useQueue';
-import QRGenerator from '../../components/QRGenerator/QRGenerator';
-import Button from '../../components/Button/Button';
+import { useAuth } from '@backend/context/AuthContext';
+import { getServicesByAdmin } from '@backend/services/service.service';
+import useQueue from '@backend/hooks/useQueue';
+import QRGenerator from '@backend/components/QRGenerator/QRGenerator';
+import Button from '@backend/components/Button/Button';
 import './Admin.css';
 
 const AdminDashboard = () => {

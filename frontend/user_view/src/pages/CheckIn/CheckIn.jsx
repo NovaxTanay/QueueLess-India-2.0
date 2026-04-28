@@ -6,10 +6,10 @@
 
 import { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../../context/AuthContext';
-import { joinQueue, getUserActiveToken } from '../../services/queue.service';
-import { getServiceById } from '../../services/service.service';
-import Button from '../../components/Button/Button';
+import { useAuth } from '@backend/context/AuthContext';
+import { joinQueue, getUserActiveToken } from '@backend/services/queue.service';
+import { getServiceById } from '@backend/services/service.service';
+import Button from '@backend/components/Button/Button';
 import './CheckIn.css';
 
 const CheckIn = () => {

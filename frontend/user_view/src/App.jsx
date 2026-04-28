@@ -11,6 +11,7 @@ import BookSlot from './pages/BookSlot/BookSlot';
 import LiveQueue from './pages/LiveQueue/LiveQueue';
 import Notifications from './pages/Notifications/Notifications';
 import Profile from './pages/Profile/Profile';
+import CheckIn from './pages/CheckIn/CheckIn';
 
 // Auth loading wrapper
 const AppContent = () => {
@@ -41,6 +42,7 @@ const AppContent = () => {
             <Route path="/queue/:serviceId" element={<LiveQueue />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/checkin" element={<CheckIn />} />
           </Route>
         </Routes>
       </Router>

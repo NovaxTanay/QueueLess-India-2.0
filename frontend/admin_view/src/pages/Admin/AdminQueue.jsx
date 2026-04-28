@@ -3,11 +3,11 @@
 // ============================================
 
 import { useState, useEffect } from 'react';
-import { useAuth } from '../../context/AuthContext';
-import { getServicesByAdmin } from '../../services/service.service';
-import { callNextToken, updateTokenStatus, skipToken, completeToken } from '../../services/queue.service';
-import useQueue from '../../hooks/useQueue';
-import Button from '../../components/Button/Button';
+import { useAuth } from '@backend/context/AuthContext';
+import { getServicesByAdmin } from '@backend/services/service.service';
+import { callNextToken, updateTokenStatus, skipToken, completeToken } from '@backend/services/queue.service';
+import useQueue from '@backend/hooks/useQueue';
+import Button from '@backend/components/Button/Button';
 import './Admin.css';
 
 const AdminQueue = () => {
@@ -20,8 +20,8 @@ const AdminQueue = () => {
     const load = async () => {
       if (!user?.uid) return;
       try {
-        const svc = await getServiceByAdmin(user.uid);
-        setService(svc);
+        const services = await getServicesByAdmin(user.uid);
+        setService(services?.[0] || null);
       } catch (err) {
         console.error(err);
       } finally {
