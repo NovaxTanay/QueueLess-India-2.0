@@ -1,0 +1,14 @@
+[33mcommit 9352c5328c0dafbdbbcb646b54c7218b7e604816[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Tanay Dawoor <tdawoor@gmail.com>
+Date:   Tue Apr 28 13:13:23 2026 +0530
+
+    Fix: move pages from Backend/ to correct frontend folders
+
+frontend/admin_view/src/pages/Admin/Admin.css
+frontend/admin_view/src/pages/Admin/AdminDashboard.jsx
+frontend/admin_view/src/pages/Admin/AdminQueue.jsx
+frontend/admin_view/src/pages/Admin/RegisterService.jsx
+frontend/user_view/src/App.jsx
+frontend/user_view/src/pages/CheckIn/CheckIn.css
+frontend/user_view/src/pages/CheckIn/CheckIn.jsx
+frontend/user_view/vite.config.js
