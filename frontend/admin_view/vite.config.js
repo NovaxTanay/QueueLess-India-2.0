@@ -4,13 +4,19 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
+  base: '/',
   resolve: {
     alias: {
       '@backend': path.resolve(__dirname, '../../Backend'),
+      'firebase/auth': path.resolve(__dirname, 'node_modules/firebase/auth'),
+      'firebase/firestore': path.resolve(__dirname, 'node_modules/firebase/firestore'),
+      'firebase/app': path.resolve(__dirname, 'node_modules/firebase/app'),
+      'firebase/storage': path.resolve(__dirname, 'node_modules/firebase/storage'),
+      'react-router-dom': path.resolve(__dirname, 'node_modules/react-router-dom'),
+      'react': path.resolve(__dirname, 'node_modules/react'),
     },
   },
   server: {
-    port: 5176,
     fs: {
       allow: [
         path.resolve(__dirname, '../../Backend'),
