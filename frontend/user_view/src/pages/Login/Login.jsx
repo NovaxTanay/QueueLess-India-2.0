@@ -132,7 +132,7 @@ const Login = () => {
 
           <div className="auth-switch-link">
             Are you a service admin?
-            <button onClick={() => window.open(import.meta.env.VITE_ADMIN_URL, '_blank')}>
+            <button onClick={() => window.open(import.meta.env.VITE_ADMIN_URL || 'https://queue-less-india-2-0.vercel.app/', '_blank')}>
               Admin Panel →
             </button>
           </div>
