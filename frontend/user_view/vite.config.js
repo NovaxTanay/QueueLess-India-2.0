@@ -10,12 +10,15 @@ export default defineConfig({
       '@backend': path.resolve(__dirname, '../../Backend'),
     },
   },
+  build: {
+    rollupOptions: {
+      external: (id) => id.includes('/Backend/pages/') || id.includes('/Backend/components/'),
+    }
+  },
   server: {
     fs: {
       allow: [
-        // Allow serving files from Backend folder
         path.resolve(__dirname, '../../Backend'),
-        // Default project root
         path.resolve(__dirname),
       ],
     },
